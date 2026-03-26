@@ -1,13 +1,15 @@
-def get_full_name(first_name: str, last_name: str):
-    full_name = first_name.title() + " " + last_name.title()
-    return full_name
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from routers.bookmarks import router
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
-def get_name_with_age(name: str, age: int):
-    name_with_age = name.title() + f" is {age} years old"
-    return name_with_age
-
-
-if __name__ == "__main__":
-    print(get_full_name("aaron", "sun"))
-    print(get_name_with_age(get_full_name("lian", "chang"), 18))
+app.include_router(router)
