@@ -38,7 +38,7 @@ BookmarkSaver/
 5. Write tests for all 4 routes
 6. Set up Next.js, create `lib/api.ts`
 7. Build page — server component fetches, client components for form + list
-8. Stretch: SQLAlchemy + Postgres with `Depends(get_db)`
+8. Stretch: SQLAlchemy + Postgres with `Depends(get_db)`, Alembic for migrations
 
 ## Rules
 - Every route uses `response_model` with a Pydantic schema
